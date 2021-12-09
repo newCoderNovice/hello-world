@@ -1,0 +1,29 @@
+class Solution {
+    public int[] sortedSquares(int[] nums) {
+        if(nums == null || nums.length == 0)
+        {
+            return nums;
+        }
+        int[] arr = new int[nums.length];
+        int i=0, j=nums.length-1, k=j;
+        
+        while(i<=j)
+        {
+            int iVal = nums[i]*nums[i];
+            int jVal = nums[j]*nums[j];
+        
+            if(iVal>jVal)
+            {
+                arr[k--]=iVal;
+                i++;
+            }
+            else
+            {
+                arr[k--]=jVal;
+                j--;
+            }
+        }
+        
+        return arr;
+    }
+}

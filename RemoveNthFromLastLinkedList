@@ -1,0 +1,32 @@
+class Solution
+{
+    public ListNode removeNthFromLast(ListNode head, int n)
+    {
+        if(head==null || (head.next==null && n!=0))
+        {
+            return null;
+        }
+        
+        ListNode prev, slow=head, fast=head;
+        while(n>0)
+        {
+            fast=fast.next; //first move the fast pointer ahead by "n" nodes
+            n--;
+        }
+        if(fast==null) 
+        {
+            //If you have to remove last node from, fast is already null and won't hit the next while loop list eg:list=[1,2,3,4,5] and n=5
+            return head.next;
+        }
+        
+        while(fast!=null)
+        {
+            fast=fast.next;
+            prev=slow;
+            slow=slow.next;
+        }
+        
+        prev.next=(slow==null)?null:slow.next;
+        return head;
+    }
+}

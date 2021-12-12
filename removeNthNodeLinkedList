@@ -1,0 +1,25 @@
+Class Solution
+{
+    public ListNode removeN(ListNode head, int n)
+    {
+        if(n==1)
+        {
+            return head.next;
+        }
+        
+        ListNode prev=head, next=head;
+        int i=1;
+        while(next!=null)
+        {
+            next=prev.next;
+            i++;
+            if(n==i && next!=null)
+            {
+                prev.next = next.next;
+                return prev;
+            }
+        }
+        return head;
+    }
+
+}

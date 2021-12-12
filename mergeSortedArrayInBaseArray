@@ -1,0 +1,14 @@
+Class Solution
+{
+    public void mergeSortd(int[] nums1, int m, int[] nums2, int n)
+    {
+        int l=m+n-1;
+        m--;
+        n--;
+        
+        while(l>=0)
+        {
+            nums1[l--]=(n<0 || (m>=0 && nums1[m]>nums2[n]) ? nums1[m--] : nums2[n--];
+        }
+    }
+}

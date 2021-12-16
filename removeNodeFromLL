@@ -1,0 +1,24 @@
+class Solution
+{
+    public ListNode removeNode(ListNode head, int val)
+    {
+        ListNode temp=head;
+        
+        while(temp!=null)
+        {
+            if(temp.val==val)
+            {
+                head=temp.next;
+            }
+            if(temp.next!=null && val == temp.next.val)
+            {
+                temp.next=temp.next.next;
+            }
+            else
+            {
+                temp=temp.next;
+            }
+        }
+        return head;
+    }
+}

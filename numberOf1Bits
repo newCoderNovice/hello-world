@@ -1,0 +1,7 @@
+class Solution
+{
+    public int hamWeight(int n)
+    {
+        return n==0?0:1+hamWeight(n&(n-1));
+    }
+}

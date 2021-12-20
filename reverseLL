@@ -1,0 +1,25 @@
+class Solution
+{
+    public LIstNode reverseRec(ListNode root)
+    {
+        if(root==null)
+          return root;
+          
+        reverseRec(root);
+        root.next=root;
+        root.next=null;
+    }
+    
+    public ListNode reverseIt(ListNode root)
+    {
+        ListNode prev=null, cur=root;
+        while(cur!-null)
+        {
+            Node temp=cur.next;
+            cur.next=prev;
+            prev=cur;
+            cur=temp;
+        }
+        return root;
+    }
+}

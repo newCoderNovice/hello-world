@@ -13,4 +13,42 @@ class Solution
         
         return t1;
     }
+    
+    public TreeNode mergeTreesIterative(TreeNode root1, TreeNode root2)
+    {
+        if(root1==null)
+            return root2;
+            
+        Stack<TreeNode[]> st = new Stack<TreeNode[]>();
+        st.push(new TreeNode[]{root1, root2});
+        
+        while(!st.isEmpty())
+        {
+             TreeNode[] cur=st.pop();
+             if(cur[0]==null || cur[1]==null)
+                continue;
+                
+             cur[0].val+=cur[1].val;
+             
+             if(cur.left!=null)
+             {
+                st.push(new TreeNode[]{cur[0].left, cur[1].left});
+             }
+             else
+             {
+                cur[0].left=cur[1].left;
+             }
+             
+             if(cur[0].right!=null)
+             {
+                st.push(new TreeNode[]{cur[0].right, cur[1].right});
+             }
+             else
+             {
+                cur[0].right=cur[1].right;
+             }
+             
+        }
+        return root1;
+    }
 }

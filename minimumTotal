@@ -1,0 +1,30 @@
+class Solution
+{
+    public int minimumTotal(List<List<Integer>> triangle)
+    {
+        if(triangle==null)
+          return triangle;
+          
+        int[] dp = new int[triangle.get(triangle.size()-1).size()] // last row of triangle is the widest
+        
+        int idx=0;
+        for(int a:triangle.get(triangle.size()-1))
+          dp[idx++]=a;
+          
+          
+        int sz=triangle.size()-2;
+        
+        while(sz>=0)
+        {
+            List<Integer> row=tringle.get(size);
+            for(int i=0; i<row.size(); i++)
+            {
+                dp[i]=Math.min(dp[i]+row.get(i), dp{i+1]+row.get(i));
+            }
+            size--;
+        }
+        
+        return dp[0];
+    }
+
+}

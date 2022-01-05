@@ -1,0 +1,31 @@
+class Solution
+{
+    List<String> res=new ArrayList<String>();
+    
+    public List<String> permute(String s)
+    {
+        permute(s.toCharArray(), 0, s.lemgth());
+        return res;
+    }
+    
+    private void permute(char[] arr, int st, int end)
+    {
+        if(st>=end)
+        {
+            res.add(new String(arr));
+            return;
+        }
+        
+        if(!Character.isAlphabetic(arr[st])
+        {
+            permute(arr, st+1, end);
+            return;
+        }
+        
+        arr[st]=Character.toLowerCase(arr[st]);
+        permute(arr, st+1, end);
+        
+        arr[st]=Character.toUpperCase(arr[st]);
+        permute(arr, st+1, end);
+    }
+}

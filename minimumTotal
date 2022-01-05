@@ -3,7 +3,7 @@ class Solution
     public int minimumTotal(List<List<Integer>> triangle)
     {
         if(triangle==null)
-          return triangle;
+          return 0;
           
         int[] dp = new int[triangle.get(triangle.size()-1).size()] // last row of triangle is the widest
         

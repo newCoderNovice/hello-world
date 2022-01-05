@@ -21,7 +21,7 @@ class Solution
             {
                 dp[i]=Math.min(dp[i]+row.get(i), dp{i+1]+row.get(i));
             }
-            size--;
+            sz--;
         }
         
         return dp[0];

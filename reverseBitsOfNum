@@ -12,5 +12,10 @@ class Solution
         return res;
     }
 
+
+    public int reverseNonBitwise(int n)
+    {
+        return (int)Integer.reverse(n);
+    }
     
 }

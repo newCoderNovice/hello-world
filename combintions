@@ -1,0 +1,26 @@
+class Solution
+{
+    List<List<Integer> res = new ArrayList<ArrayList<Integer>>();
+    
+    public List<List<Integer>> combine(int n, int k)
+    {
+        combineHelper(n, 1, k, new ArrayList<Integer>());
+        return res;   
+    }
+    
+    private void combineHelper(int n, int loc, int k, List<Integer> nums)
+    {
+        if(k==0)
+            res.add(new ArrayList<Integer>(nums));
+            
+        else
+        {
+            for(int i=loc; i<=n; i++)
+            {
+                nums.add(i);
+                combineHelper(n, i+1, k-1, nums);
+                nums.remove(nums.size()-1);
+            }
+        }
+    }
+}
